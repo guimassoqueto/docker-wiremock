@@ -11,7 +11,7 @@ services:
       - local
 
   wiremock-random:
-    container_name: wiremock-hello
+    container_name: wiremock-random
     build: 
       context: ./samples/random
       dockerfile: Dockerfile
@@ -19,6 +19,19 @@ services:
       - "8080:8080"
     volumes:
       - ./samples/random/stubs:/home/wiremock
+    networks:
+      - local
+
+  wiremock-random-templating:
+    container_name: wiremock-random-templating
+    image: wiremock/wiremock    
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./samples/radom-response-templating/stubs:/home/wiremock
+    command:
+      - -verbose
+      - -global-response-templating
     networks:
       - local
 
