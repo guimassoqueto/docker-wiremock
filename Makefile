@@ -10,5 +10,8 @@ wiremock-hello:
 wiremock-random:
 	${COMPOSE} up wiremock-random -d
 
+wiremock-random-templating:
+	${COMPOSE} up wiremock-random-templating -d
+
 down:
 	${COMPOSE} down && clear
