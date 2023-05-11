@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/random"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "bodyFileName": "random.html",
+    "transformers": ["response-template"]
+  }
+}
