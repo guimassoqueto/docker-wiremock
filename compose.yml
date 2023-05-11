@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  wiremock-hello:
+    container_name: wiremock-hello
+    image: wiremock/wiremock
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./samples/hello/stubs:/home/wiremock
+    networks:
+      - local
+
+  wiremock-random:
+    container_name: wiremock-hello
+    build: 
+      context: ./samples/random
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./samples/random/stubs:/home/wiremock
+    networks:
+      - local
+
+networks:
+  local:
+    name: local
+    driver: bridge
